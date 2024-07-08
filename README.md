@@ -49,15 +49,15 @@ This is a RESTful API for managing users, games, and scores in a game management
 
 Create a .env file in the root directory and add the following environment variables:
 
-   DB_NAME=your_database_name
-   DB_USER=your_database_user
-   DB_PASSWORD=your_database_password
-   DB_HOST=localhost
-   PORT=4000
-   ACCESS_TOKEN_SECRET=your_access_token_secret
-   ACCESS_TOKEN_EXPIRY=1h
+1. DB_NAME=your_database_name
+2. DB_USER=your_database_user
+3. DB_PASSWORD=your_database_password
+4. DB_HOST=localhost
+5. PORT=4000
+6. ACCESS_TOKEN_SECRET=your_access_token_secret
+7. ACCESS_TOKEN_EXPIRY=1h
 
-4. **Set up the database:**
+8. **Set up the database:**
 
 Make sure PostgreSQL is running and create a new database with the name specified in the .env file.
 
@@ -73,11 +73,11 @@ The API will be running on [LocalHost](http://localhost:4000).
 
 ### Testing the API with Postman
 
-### Download Postman
+1. **Download Postman**
 
 If you haven't already, download and install [Postman](https://www.postman.com/downloads/).
 
-### Import the Postman collection
+2. **Import the Postman collection**
 
 - Locate the `Postman API` folder in your project directory.
 - Import the **`Game Management System API.postman_collection.json`** file into Postman:
@@ -85,11 +85,11 @@ If you haven't already, download and install [Postman](https://www.postman.com/d
   - Upload the JSON file.
   - The collection should now be available in your Postman sidebar.
 
-### Set up environment variables (optional)
+3. **Set up environment variables (optional)**
 
 - If your API endpoints require environment-specific variables (like tokens or base URLs), create a Postman environment and set these variables there.
 
-### Use the API
+4. **Use the API**
 
 - Open the imported collection in Postman.
 - Select an endpoint to test (e.g., Register User, Login, Create Game, etc.).
