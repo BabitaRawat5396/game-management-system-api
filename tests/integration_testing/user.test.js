@@ -1,8 +1,8 @@
 const request = require("supertest");
-const sequelize = require("../config/db.config");
-const User = require("../models/user.model");
+const {sequelize} = require("../../config/db.config");
+const User = require("../../models/user.model");
 const jwt = require("jsonwebtoken");
-const { createServer } = require("../utils/server");
+const { createServer } = require("../../utils/server");
 const app = createServer();
 
 beforeAll(async () => {
@@ -57,3 +57,5 @@ describe("User API", () => {
     expect(response.body.data.username).toBe("john_doe");
   });
 });
+
+

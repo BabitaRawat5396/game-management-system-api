@@ -3,6 +3,16 @@ const ApiError = require("../utils/ApiError");
 
 // Service function to add a new score
 exports.addScore = async (userId, gameId, score) => {
+  // Check if a score entry already exists for the given userId and gameId
+  const existingScore = await Score.findOne({ where: { userId, gameId } });
+
+  if (existingScore) {
+    throw new ApiError(
+      409,
+      "Score entry already exists for this user and game"
+    );
+  }
+
   // Create a new score in the database
   const newScore = await Score.create({ userId, gameId, score });
 
