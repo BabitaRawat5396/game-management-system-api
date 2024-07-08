@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "18bdb27f-5779-4f49-85a8-fd36e652bb4a",
+		"name": "Game Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36775641",
+		"_collection_link": "https://game-system-api.postman.co/workspace/Game-System-API-Workspace~73a95627-467d-41d2-96c5-1d9d19c404a2/collection/36775641-18bdb27f-5779-4f49-85a8-fd36e652bb4a?action=share&source=collection_link&creator=36775641"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Player Details\r\n{\r\n    \"username\": \"Jones\",\r\n    \"email\": \"jones@example.com\",\r\n    \"password\": \"password123\"\r\n}\r\n\r\n\r\n\r\n// Admin Details\r\n// {\r\n//     \"username\": \"admin\",\r\n//     \"email\": \"admin@example.com\",\r\n//     \"password\": \"password123\"\r\n//     \"role\" :\"Admin\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_AUTH}}/user/register",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						},
+						"description": "Registers a new user with a unique username, email address, and password."
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Admin credentials\r\n// {\r\n//     \"email\": \"admin@example.com\",\r\n//     \"password\": \"password123\"\r\n// }\r\n// Player credentials\r\n{\r\n    \"email\": \"emma.jones@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_AUTH}}/user/login",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						},
+						"description": "Logs in a user using their registered email and password."
+					},
+					"response": []
+				},
+				{
+					"name": "getProfile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_AUTH}}/user/getProfile",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"user",
+								"getProfile"
+							]
+						},
+						"description": "Retrieves the profile information of the authenticated user.\n\n**Protected Route:** Requires authentication token in the Authorization header."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "createGame",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Admin login required\r\n{\r\n  \"name\": \"FIFA\",\r\n  \"genre\": \"Sports\",\r\n  \"releaseDate\": \"2012-09-28\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_AUTH}}/game/createGame",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"game",
+								"createGame"
+							]
+						},
+						"description": "Description: Creates a new game in the system.  \n**Protected**: Yes (Admin role required)"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllGames",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_AUTH}}/game/getAllGames",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"game",
+								"getAllGames"
+							]
+						},
+						"description": "Retrieves all games in the system."
+					},
+					"response": []
+				},
+				{
+					"name": "getGame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_AUTH}}/game/getGame/20",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"game",
+								"getGame",
+								"20"
+							]
+						},
+						"description": "Retrieves game with id from url params."
+					},
+					"response": []
+				},
+				{
+					"name": "updateGame",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Admin login required\r\n{\r\n    \"genre\": \"Strategy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_AUTH}}/game/updateGame/20",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"game",
+								"updateGame",
+								"20"
+							]
+						},
+						"description": "Updates details of a specific game.\n\n**Protected**: Yes (Admin role required)"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGame",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_AUTH}}/game/deleteGame/20",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"game",
+								"deleteGame",
+								"20"
+							]
+						},
+						"description": "deletes specific game.\n\n**Protected**: Yes (Admin role required)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Score",
+			"item": [
+				{
+					"name": "addScore",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Player login required\r\n{\r\n    \"userId\": \"60\",\r\n    \"gameId\": \"13\",\r\n    \"score\": \"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_AUTH}}/score/addScore",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"score",
+								"addScore"
+							]
+						},
+						"description": "Adds a score for a game.\n\n**Protected**: Yes (Player role is required)"
+					},
+					"response": []
+				},
+				{
+					"name": "getScoresByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_AUTH}}/score/getScoresByUser/60",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"score",
+								"getScoresByUser",
+								"60"
+							]
+						},
+						"description": "Retrieves all scores for a specific user"
+					},
+					"response": []
+				},
+				{
+					"name": "getScoresByGame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_AUTH}}/score/getScoresByGame/13",
+							"host": [
+								"{{BASE_AUTH}}"
+							],
+							"path": [
+								"score",
+								"getScoresByGame",
+								"13"
+							]
+						},
+						"description": "Retrieves all scores for a specific game"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
