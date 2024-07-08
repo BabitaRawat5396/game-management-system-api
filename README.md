@@ -38,8 +38,8 @@ This is a RESTful API for managing users, games, and scores in a game management
 
 1. **Clone the repository:**
 
-   git clone [Game-management-system-api link](https://github.com/BabitaRawat5396/game-management-system-api)
-   cd game-management-system-api
+   - git clone [Game-management-system-api link](https://github.com/BabitaRawat5396/game-management-system-api)
+   - cd game-management-system-api
    
 3. **Install dependencies:**
 
@@ -49,13 +49,13 @@ This is a RESTful API for managing users, games, and scores in a game management
 
 Create a .env file in the root directory and add the following environment variables:
 
-1. DB_NAME=your_database_name
-2. DB_USER=your_database_user
-3. DB_PASSWORD=your_database_password
-4. DB_HOST=localhost
-5. PORT=4000
-6. ACCESS_TOKEN_SECRET=your_access_token_secret
-7. ACCESS_TOKEN_EXPIRY=1h
+- DB_NAME=your_database_name
+- DB_USER=your_database_user
+- DB_PASSWORD=your_database_password
+- DB_HOST=localhost
+- PORT=4000
+- ACCESS_TOKEN_SECRET=your_access_token_secret
+- ACCESS_TOKEN_EXPIRY=1h
 
 8. **Set up the database:**
 
