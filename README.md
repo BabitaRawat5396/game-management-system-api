@@ -38,7 +38,7 @@ This is a RESTful API for managing users, games, and scores in a game management
 
 1. **Clone the repository:**
 
-   git clone [fame-management-system-api link](https://github.com/BabitaRawat5396/game-management-system-api)
+   git clone [Game-management-system-api link](https://github.com/BabitaRawat5396/game-management-system-api)
    cd game-management-system-api
    
 3. **Install dependencies:**
