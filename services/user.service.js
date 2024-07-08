@@ -1,4 +1,3 @@
-const { asyncHandler } = require("../utils/asyncErrorHandlerWrapper");
 const ApiError = require("../utils/ApiError");
 const User = require("../models/user.model");
 
