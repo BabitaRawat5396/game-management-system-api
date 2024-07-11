@@ -16,7 +16,7 @@ afterAll(async () => {
 
 describe("Game API", () => {
   let adminToken;
-
+  let game;
   beforeAll(async () => {
     const admin = await User.findOne({
       where: {
@@ -43,7 +43,7 @@ describe("Game API", () => {
       .post("/api/v1/game/createGame")
       .set("Authorization", `Bearer ${adminToken}`)
       .send({ name: "Game1", genre: "Action", releaseDate: "2024-01-01" });
-
+    game = response.body.data;
     expect(response.status).toBe(201);
     expect(response.body.data.name).toBe("Game1");
   });
@@ -58,7 +58,6 @@ describe("Game API", () => {
   });
 
   it("should get a game by ID", async () => {
-    const game = await Game.findOne({ where: { name: "Game1" } });
 
     const response = await request(app)
       .get(`/api/v1/game/getGame/${game.id}`)
@@ -69,7 +68,6 @@ describe("Game API", () => {
   });
 
   it("should update a game", async () => {
-    const game = await Game.findOne({ where: { name: "Game1" } });
 
     const response = await request(app)
       .put(`/api/v1/game/updateGame/${game.id}`)
@@ -81,7 +79,6 @@ describe("Game API", () => {
   });
 
   it("should delete a game", async () => {
-    const game = await Game.findOne({ where: { name: "Updated Game4" } });
 
     const response = await request(app)
       .delete(`/api/v1/game/deleteGame/${game.id}`)

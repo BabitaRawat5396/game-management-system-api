@@ -27,12 +27,8 @@ describe("Score API", () => {
       },
     });
 
-    game = await Game.create({
-      name: "Game1",
-      genre: "Action",
-      releaseDate: "2024-01-01",
-    });
-
+    game = await Game.findByPk(59);
+    console.log("--------------Game----------", game);
     playerToken = jwt.sign(
       {
         _id: player.id,
